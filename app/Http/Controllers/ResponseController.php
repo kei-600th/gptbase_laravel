@@ -21,4 +21,37 @@ class ResponseController extends Controller
             'responses' => $responses,
         ]);
     }
+ 
+    /**
+        * タスク登録
+        *
+        * @param Request $request
+        * @return Response
+        */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'question' => 'required|max:255',
+        ]);
+ 
+        // タスク作成
+        Response::create([
+            'question' => $request->question
+        ]);
+ 
+        return redirect('/responses');
+    }
+ 
+    /**
+        * タスク削除
+        *
+        * @param Request $request
+        * @param Response $response
+        * @return Response
+        */
+    public function destroy(Request $request, Response $response)
+    {
+        $response->delete();
+        return redirect('/responses');
+    }
 }
