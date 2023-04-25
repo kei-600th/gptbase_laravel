@@ -23,11 +23,15 @@ class ResponseController extends Controller
                 foreach ($files as $file) {
                     $filename = $file->getFilename();
                     $des_path = public_path("$str_path$filename");
+                    $deletePath = config('app.delete_path');
+
+
                     File::move($file, $des_path);
 
 
                     $extension = pathinfo($filename, PATHINFO_EXTENSION);
                     $title = str_replace(".$extension", '', $filename);
+                    $des_path = str_replace($deletePath, '', $des_path);
 
                     Response::create([
                         'title' => $title,
@@ -37,7 +41,7 @@ class ResponseController extends Controller
 
 
                     
-                    echo $filename . "ファイルを移動しました" . "<br>";
+                    // echo $filename . "ファイルを移動しました" . "<br>";
                 }
             } else {
                 echo "ファイルが存在していません";
@@ -45,21 +49,19 @@ class ResponseController extends Controller
         } else {
             echo "ディレクトリが存在していません";
         }
-    
-    
-    
-
-
-
-
-
-
-
 
         $responses = Response::orderBy('created_at', 'asc')->get();
         return view('responses.index', [
             'responses' => $responses,
         ]);
+    }
+
+
+
+    public function show($id)
+    {
+        $response = Response::find($id);
+        return view('responses.show', ['response' => $response]);
     }
  
 

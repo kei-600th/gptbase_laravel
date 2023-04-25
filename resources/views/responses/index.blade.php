@@ -2,50 +2,26 @@
  
 @section('content')
  
-<div class="panel-body">
-    @include('common.errors')
- 
-    <form action="{{ url('response') }}" method="POST" class="form-horizontal">
-        {{ csrf_field() }}
- 
-        <div class="form-group">
-            <label for="response-title" class="col-sm-3 control-label">Response</label>
- 
-            <div class="col-sm-6">
-                <input type="text" name="title" id="response-title" class="form-control">
-            </div>
-        </div>
- 
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Add Response
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
- 
 @if (count($responses) > 0)
 <div class="panel panel-default">
     <div class="panel-heading">
-        Current Responses
+        Current log
     </div>
  
     <div class="panel-body">
         <table class="table table-striped response-table">
  
             <thead>
-                <th>Response</th>
+                <th>ChatGPT</th>
                 <th>&nbsp;</th>
             </thead>
  
             <tbody>
                 @foreach ($responses as $response)
                 <tr>
-                    <td class="table-text">
-                        <div>{{ $response->title }}</div>
-                    </td>
+                <td class="table-text">
+                    <div><a href="{{ url('response/'.$response->id) }}">{{ $response->title }}</a></div>
+                </td>
  
                     <td>
                         <form action="{{ url('response/'.$response->id) }}" method="POST">
