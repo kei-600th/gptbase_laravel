@@ -6,13 +6,56 @@ use Illuminate\Http\Request;
  
 use App\Models\Response;
 
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
  
 class ResponseController extends Controller
 {
 
     public function index(Request $request)
     {
+        $new_path = "storage/new";
+        $str_path = "storage/";
+    
+        if (File::exists(public_path($new_path))) {
+            $files = File::files(public_path($new_path));
+            if (count($files) !== 0) {
+                foreach ($files as $file) {
+                    $filename = $file->getFilename();
+                    $des_path = public_path("$str_path$filename");
+                    File::move($file, $des_path);
+
+
+                    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                    $title = str_replace(".$extension", '', $filename);
+
+                    Response::create([
+                        'title' => $title,
+                        'filepath' => $des_path,
+                    ]);
+
+
+
+                    
+                    echo $filename . "ファイルを移動しました" . "<br>";
+                }
+            } else {
+                echo "ファイルが存在していません";
+            }
+        } else {
+            echo "ディレクトリが存在していません";
+        }
+    
+    
+    
+
+
+
+
+
+
+
+
         $responses = Response::orderBy('created_at', 'asc')->get();
         return view('responses.index', [
             'responses' => $responses,
