@@ -2,16 +2,12 @@
  
 @section('content')
  
-<!-- タスク登録用パネル… -->
 <div class="panel-body">
-    <!-- バリデーションエラーの表示 -->
     @include('common.errors')
  
-    <!-- 新タスクフォーム -->
     <form action="{{ url('response') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
  
-        <!-- タスク名 -->
         <div class="form-group">
             <label for="response-title" class="col-sm-3 control-label">Response</label>
  
@@ -20,7 +16,6 @@
             </div>
         </div>
  
-        <!-- タスク追加ボタン -->
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn btn-default">
@@ -31,7 +26,6 @@
     </form>
 </div>
  
-<!-- タスク一覧表示 -->
 @if (count($responses) > 0)
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -41,23 +35,19 @@
     <div class="panel-body">
         <table class="table table-striped response-table">
  
-            <!-- テーブルヘッダ -->
             <thead>
                 <th>Response</th>
                 <th>&nbsp;</th>
             </thead>
  
-            <!-- テーブル本体 -->
             <tbody>
                 @foreach ($responses as $response)
                 <tr>
-                    <!-- タスク名 -->
                     <td class="table-text">
                         <div>{{ $response->title }}</div>
                     </td>
  
                     <td>
-                        <!-- TODO: 削除ボタン -->
                         <form action="{{ url('response/'.$response->id) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
