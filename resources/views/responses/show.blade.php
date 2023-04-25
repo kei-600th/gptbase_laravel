@@ -7,7 +7,7 @@
         </div>
 
         <div class="panel-body">
-            <img src="{{ asset($response->filepath) }}" alt="Response Image">
+            <img src="{{ asset($response->filepath) }}" alt="Response Image" style="width: 80%; height: auto;">
         </div>
     </div>
 @endsection
