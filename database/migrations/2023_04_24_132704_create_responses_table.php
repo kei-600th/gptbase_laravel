@@ -11,8 +11,8 @@ class CreateResponsesTable extends Migration
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->text('html')->nullable();
-            $table->text('css')->nullable();
+            $table->text('html');
+            $table->text('css');
             $table->timestamps();
         });
     }

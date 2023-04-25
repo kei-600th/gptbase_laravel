@@ -9,5 +9,5 @@ class Response extends Model
 {
     use HasFactory;
  
-    protected $fillable = ['url'];
+    protected $fillable = ['url', 'html', 'css'];
 }
