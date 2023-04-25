@@ -10,9 +10,8 @@ class CreateResponsesTable extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
-            $table->text('html');
-            $table->text('css');
+            $table->string('title');
+            $table->string('filepath');
             $table->timestamps();
         });
     }

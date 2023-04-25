@@ -23,13 +23,12 @@ class ResponseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'url' => 'required|max:255',
+            'title' => 'required|max:255',
         ]);
  
         Response::create([
-        'url' => $request->url,
-        'html' => 'HTMLコード',
-        'css' => 'CSSコード'
+        'title' => $request->title,
+        'filepath' => 'ファイルパス',
         ]);
 
         return redirect('/responses');
