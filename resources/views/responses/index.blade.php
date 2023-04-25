@@ -13,10 +13,10 @@
  
         <!-- タスク名 -->
         <div class="form-group">
-            <label for="response-question" class="col-sm-3 control-label">Response</label>
+            <label for="response-url" class="col-sm-3 control-label">Response</label>
  
             <div class="col-sm-6">
-                <input type="text" name="question" id="response-question" class="form-control">
+                <input type="text" name="url" id="response-url" class="form-control">
             </div>
         </div>
  
@@ -53,7 +53,7 @@
                 <tr>
                     <!-- タスク名 -->
                     <td class="table-text">
-                        <div>{{ $response->question }}</div>
+                        <div>{{ $response->url }}</div>
                     </td>
  
                     <td>

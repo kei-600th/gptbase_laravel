@@ -6,17 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateResponsesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
-            $table->text('question');
-            $table->text('answer')->nullable();
+            $table->string('url');
+            $table->text('html')->nullable();
+            $table->text('css')->nullable();
             $table->timestamps();
         });
     }

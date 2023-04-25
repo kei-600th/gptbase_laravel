@@ -31,14 +31,16 @@ class ResponseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'question' => 'required|max:255',
+            'url' => 'required|max:255',
         ]);
  
         // タスク作成
         Response::create([
-            'question' => $request->question
+        'url' => $request->url,
+        'html' => 'HTMLコード',
+        'css' => 'CSSコード'
         ]);
- 
+
         return redirect('/responses');
     }
  
