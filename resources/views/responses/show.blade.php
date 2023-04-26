@@ -11,11 +11,9 @@
                 <img src="{{ asset($response->filepath) }}" alt="Response Image" style="width: 100%; height: auto;">
             </div>
             <div style="display: inline-block; width: 30%; vertical-align: top;">
-                <ul>
                     @foreach ($response->boards as $board)
-                        <div class="comment-panel" style="margin-bottom: 20px;">{{ $board->comment }}</div>
+                        <div class="comment-panel" style="margin-bottom: 20px; background-color: #1d2020; color: #eee; border-radius: 5px;">{{ $board->comment }}</div>
                     @endforeach
-                </ul>
             </div>
         </div>
 
