@@ -50,7 +50,7 @@ class ResponseController extends Controller
             echo "ディレクトリが存在していません";
         }
 
-        $responses = Response::orderBy('created_at', 'asc')->get();
+        $responses = Response::orderBy('created_at', 'desc')->get();
         return view('responses.index', [
             'responses' => $responses,
         ]);
