@@ -29,7 +29,7 @@
                             {{ method_field('DELETE') }}
  
                             <button type="submit" id="delete-response-{{ $response->id }}" class="btn btn-danger">
-                                <i class="fa fa-btn fa-trash"></i>削除
+                                <i class="fa fa-btn fa-trash"></i>
                             </button>
                         </form>
                     </td>
