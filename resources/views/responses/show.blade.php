@@ -12,7 +12,9 @@
             </div>
             <div style="display: inline-block; width: 30%; vertical-align: top;">
                     @foreach ($response->boards as $board)
-                        <div class="comment-panel" style="margin-bottom: 20px; background-color: #1d2020; color: #eee; border-radius: 5px;">{{ $board->comment }}</div>
+                        <div class="comment-panel" style="margin-bottom: 20px; background-color: #1d2020; color: #eee; border-radius: 5px; font-size: 70%;">
+                            {!! nl2br(e($board->comment)) !!}
+                        </div>
                     @endforeach
             </div>
         </div>
