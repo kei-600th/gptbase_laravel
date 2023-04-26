@@ -43,8 +43,8 @@ class ResponseController extends Controller
                     
                     // echo $filename . "ファイルを移動しました" . "<br>";
                 }
+                echo "新しい対話ログを追加しました!";
             } else {
-                echo "ファイルが存在していません";
             }
         } else {
             echo "ディレクトリが存在していません";
