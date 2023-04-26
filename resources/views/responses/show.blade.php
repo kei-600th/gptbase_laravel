@@ -6,11 +6,20 @@
             {{ $response->title }}
         </div>
 
-        <div class="panel-body">
-            <img src="{{ asset($response->filepath) }}" alt="Response Image" style="width: 80%; height: auto;">
+        <div class="panel-body" style="display: flex;">
+            <div style="display: inline-block; width: 70%; vertical-align: top;">
+                <img src="{{ asset($response->filepath) }}" alt="Response Image" style="width: 100%; height: auto;">
+            </div>
+            <div style="display: inline-block; width: 30%; vertical-align: top;">
+                <ul>
+                    @foreach ($response->boards as $board)
+                        <div class="comment-panel" style="margin-bottom: 20px;">{{ $board->comment }}</div>
+                    @endforeach
+                </ul>
+            </div>
         </div>
 
-        <div class="panel-footer" style="width: 80%;">
+        <div class="panel-footer" style="width: 70%;">
             <form method="POST" action="{{ route('boards.store') }}">
                 @csrf
                 <input type="hidden" name="response_id" value="{{ $response->id }}">
