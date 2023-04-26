@@ -10,4 +10,9 @@ class Response extends Model
     use HasFactory;
  
     protected $fillable = ['title', 'filepath'];
+
+    public function board()
+    {
+        return $this->belongsTo(Board::class);
+    }
 }
