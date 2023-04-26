@@ -5,7 +5,6 @@
 @if (count($responses) > 0)
 <div class="panel panel-default">
     <div class="panel-heading">
-        Current log
     </div>
  
     <div class="panel-body">

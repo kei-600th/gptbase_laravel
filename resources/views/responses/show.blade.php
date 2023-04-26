@@ -25,7 +25,7 @@
                     <label for="comment">コメント</label>
                     <textarea name="comment" id="comment" class="form-control" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">投稿する</button>
+                <button type="submit" class="btn btn-primary">投稿</button>
             </form>
         </div>
     </div>
