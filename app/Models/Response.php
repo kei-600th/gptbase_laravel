@@ -11,8 +11,8 @@ class Response extends Model
  
     protected $fillable = ['title', 'filepath'];
 
-    public function board()
+    public function boards()
     {
-        return $this->belongsTo(Board::class);
+        return $this->hasMany(Board::class);
     }
 }

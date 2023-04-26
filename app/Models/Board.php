@@ -11,8 +11,8 @@ class Board extends Model
 
     protected $fillable = ['comment', 'response_id'];
 
-    public function responses()
+    public function response()
     {
-        return $this->hasMany(Response::class);
+        return $this->belongsTo(Response::class);
     }
 }
