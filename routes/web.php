@@ -21,3 +21,4 @@ Route::get('/responses', [App\Http\Controllers\ResponseController::class, 'index
 Route::post('/response', [App\Http\Controllers\ResponseController::class, 'store'])->name('response');
 Route::delete('/response/{response}', [App\Http\Controllers\ResponseController::class, 'destroy'])->name('/response/{response}');
 Route::get('response/{id}', [App\Http\Controllers\ResponseController::class, 'show'])->name('responses');
+Route::resource('boards', 'BoardsController')->only(['store']);
